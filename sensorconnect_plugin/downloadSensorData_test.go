@@ -37,9 +37,9 @@ var _ = Describe("DownloadSensorData Integration Tests", func() {
 					CurrentCid:    0,
 				}
 
-				portMap, err := input.GetUsedPortsAndMode(context.Background())
+				devices, err := input.GetConnectedDevices(context.Background())
 				Expect(err).NotTo(HaveOccurred())
-				input.CurrentPortMap = portMap
+				input.ConnectedDevices = devices
 
 				dataMap, err := input.GetSensorDataMap(context.Background())
 				Expect(err).NotTo(HaveOccurred())
